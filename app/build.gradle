@@ -18,6 +18,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'org.projectlombok:lombok'
     implementation 'com.fasterxml.jackson.core:jackson-databind'
     annotationProcessor 'org.projectlombok:lombok'
@@ -26,4 +27,33 @@ dependencies {
 
 java {
     sourceCompatibility = '17'
+}
+
+tasks.named('bootRun') {
+    // 啟用熱重載
+    jvmArgs = [
+        "-XX:TieredStopAtLevel=1",
+        "-Dspring.devtools.restart.enabled=true",
+        "-Dspring.devtools.livereload.enabled=true"
+    ]
+}
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+// 添加 Gradle 編譯設定
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+// 確保即時編譯
+tasks.named('classes') {
+    doLast {
+        ant.touch(file: "${buildDir}/trigger.txt")
+    }
 }

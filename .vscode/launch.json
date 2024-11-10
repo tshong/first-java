@@ -6,16 +6,13 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "App",
+            "name": "Spring Boot App",
             "request": "launch",
             "mainClass": "com.icsc.ai.app.App",
-            "projectName": "app"
+            "projectName": "app",
+            "env": {
+                "SPRING_DEVTOOLS_RESTART_ENABLED": "true"
+            }
         }
     ]
 }

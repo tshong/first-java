@@ -1,4 +1,23 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "java.debug.settings.hotCodeReplace": "auto",
+    "java.settings.url": ".vscode/org.eclipse.jdt.core.prefs",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-17",
+            "path": "D:\\openjdk17\\bin\\java.exe"
+        } 
+    ],
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "java.compile.autobuilding": true,
+    "java.autobuild.enabled": true,
+    "java.server.launchMode": "Standard"
 }

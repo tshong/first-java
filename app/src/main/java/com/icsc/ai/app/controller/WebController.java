@@ -20,7 +20,10 @@ public class WebController {
     @GetMapping("/user")
     public String listUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
-        model.addAttribute("newUser", new User());
+        User user = new User();
+        user.setUserId("I20496");
+        user.setAge(22);
+        model.addAttribute("newUser", user);
         return "users";
     }
 
